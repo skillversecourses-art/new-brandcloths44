@@ -22,7 +22,7 @@ const categories = [
 const testimonials = [
   { name: 'Aryan S.', text: 'Best dark fashion brand I\'ve found. The quality is insane and delivery was super fast.', stars: 5 },
   { name: 'Priya M.', text: 'The bomber jacket is literally perfect. Dark, minimal, fits great. Will order again!', stars: 5 },
-  { name: 'Rahul K.', text: 'BRANDCLOTHS44 has ruined other brands for me. Nothing compares.', stars: 5 },
+  { name: 'Rahul K.', text: 'Berrylush has ruined other brands for me. Nothing compares.', stars: 5 },
 ]
 
 export default function Home() {
@@ -68,7 +68,7 @@ export default function Home() {
           <div className="hero-visual">
             <div className="hero-badge-spin">
               <div className="badge-ring">
-                <span className="badge-text">BRANDCLOTHS44 • EST 2020 • PREMIUM •</span>
+                <span className="badge-text">Berrylush • EST 2020 • PREMIUM •</span>
               </div>
             </div>
             <div className="clothing-card">

@@ -6,13 +6,13 @@ const sections = [
   {
     title: 'Acceptance of Terms',
     content: [
-      'By accessing and using the BRANDCLOTHS44 website, you acknowledge that you have read, understood, and agree to be bound by these Terms and Conditions. If you do not agree with any part of these terms, please discontinue use of our website immediately.',
+      'By accessing and using the Berrylush website, you acknowledge that you have read, understood, and agree to be bound by these Terms and Conditions. If you do not agree with any part of these terms, please discontinue use of our website immediately.',
     ],
   },
   {
     title: 'Account Registration',
     content: [
-      'When creating an account with BRANDCLOTHS44, you agree to the following:',
+      'When creating an account with Berrylush, you agree to the following:',
     ],
     list: [
       'You must be at least 18 years of age or have parental consent',
@@ -21,7 +21,7 @@ const sections = [
       'You are responsible for all activities that occur under your account',
       'You must notify us immediately of any unauthorized use of your account',
     ],
-    highlight: 'BRANDCLOTHS44 reserves the right to suspend or terminate accounts that violate these terms or engage in fraudulent activity.',
+    highlight: 'Berrylush reserves the right to suspend or terminate accounts that violate these terms or engage in fraudulent activity.',
   },
   {
     title: 'Products & Pricing',
@@ -52,7 +52,7 @@ const sections = [
   {
     title: 'Shipping & Delivery',
     content: [
-      'BRANDCLOTHS44 ships across India and to select international destinations. Please review the following shipping terms:',
+      'Berrylush ships across India and to select international destinations. Please review the following shipping terms:',
     ],
     list: [
       'Estimated delivery times are indicative and may vary based on location and availability',
@@ -79,7 +79,7 @@ const sections = [
   {
     title: 'Intellectual Property',
     content: [
-      'All content on the BRANDCLOTHS44 website, including but not limited to text, graphics, logos, images, product designs, and software, is the property of BRANDCLOTHS44 and is protected by applicable intellectual property laws.',
+      'All content on the Berrylush website, including but not limited to text, graphics, logos, images, product designs, and software, is the property of Berrylush and is protected by applicable intellectual property laws.',
     ],
     list: [
       'You may not reproduce, distribute, or create derivative works from our content without written permission',
@@ -90,7 +90,7 @@ const sections = [
   {
     title: 'Limitation of Liability',
     content: [
-      'BRANDCLOTHS44 shall not be liable for any indirect, incidental, special, consequential, or punitive damages resulting from your use of our website or purchase of our products. Our total liability shall not exceed the amount paid by you for the specific product in question.',
+      'Berrylush shall not be liable for any indirect, incidental, special, consequential, or punitive damages resulting from your use of our website or purchase of our products. Our total liability shall not exceed the amount paid by you for the specific product in question.',
     ],
   },
   {
@@ -102,7 +102,7 @@ const sections = [
   {
     title: 'Changes to Terms',
     content: [
-      'BRANDCLOTHS44 reserves the right to update or modify these Terms and Conditions at any time. Changes will be effective immediately upon posting on this page. Continued use of our website after any modifications constitutes acceptance of the updated terms.',
+      'Berrylush reserves the right to update or modify these Terms and Conditions at any time. Changes will be effective immediately upon posting on this page. Continued use of our website after any modifications constitutes acceptance of the updated terms.',
     ],
   },
 ]
@@ -127,7 +127,7 @@ export default function TermsConditions() {
       <div className="legal-body">
         <div className="legal-section">
           <p>
-            Welcome to BRANDCLOTHS44. These Terms and Conditions govern your use
+            Welcome to Berrylush. These Terms and Conditions govern your use
             of our website and the purchase of products from our online store.
             Please read them carefully before using our services.
           </p>
@@ -168,8 +168,8 @@ export default function TermsConditions() {
             If you have any questions about these Terms and Conditions, feel free
             to reach out at{' '}
             <Link to="/contact">our contact page</Link> or email us at{' '}
-            <a href="mailto:legal@brandcloths44.com">
-              legal@brandcloths44.com
+            <a href="mailto:hasin6637@gmail.com">
+              hasin6637@gmail.com
             </a>
           </p>
         </div>

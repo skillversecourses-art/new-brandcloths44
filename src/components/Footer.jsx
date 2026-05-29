@@ -7,7 +7,7 @@ export default function Footer() {
       <div className="footer-top">
         <div className="footer-brand">
           <div className="footer-logo">
-            <span>BRAND</span><span className="gold">CLOTHS</span><span>44</span>
+            <span>Berry</span><span className="gold">lush</span>
           </div>
           <p>Premium dark fashion for the bold and the refined. Wear your identity.</p>
           <div className="footer-socials">
@@ -49,7 +49,12 @@ export default function Footer() {
       </div>
 
       <div className="footer-bottom">
-        <p>&copy; 2024 BRANDCLOTHS44. All rights reserved.</p>
+        <div className="footer-legal-info" style={{ textAlign: 'left', marginBottom: '1rem', fontSize: '0.85rem', color: '#888' }}>
+          <p><strong>Legal Name:</strong> SUREHBEEL</p>
+          <p><strong>GST No.:</strong> 09QEEPS8747Q1ZW</p>
+          <p><strong>Address:</strong> BUILDING NO. 161, GAUTAMBUDDHA NAGAR, UTTAR PARDESH, 201301</p>
+        </div>
+        <p>&copy; 2024 Berrylush. All rights reserved.</p>
         <div className="footer-bottom-links">
           <Link to="/privacy-policy">Privacy Policy</Link>
           <Link to="/terms-conditions">Terms of Service</Link>

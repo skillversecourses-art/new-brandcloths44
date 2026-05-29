@@ -19,7 +19,7 @@ const sections = [
   {
     title: 'How We Use Your Information',
     content: [
-      'Your personal information is used to deliver the premium experience you expect from BRANDCLOTHS44:',
+      'Your personal information is used to deliver the premium experience you expect from Berrylush:',
     ],
     list: [
       'Processing and fulfilling your orders',
@@ -102,7 +102,7 @@ export default function PrivacyPolicy() {
       <div className="legal-body">
         <div className="legal-section">
           <p>
-            At BRANDCLOTHS44, we are committed to protecting your privacy and
+            At Berrylush, we are committed to protecting your privacy and
             ensuring the security of your personal information. This Privacy
             Policy explains how we collect, use, and safeguard your data when
             you visit our website and make purchases.
@@ -144,8 +144,8 @@ export default function PrivacyPolicy() {
             If you have any questions or concerns about this Privacy Policy or
             your personal data, please contact us at{' '}
             <Link to="/contact">our contact page</Link> or email us at{' '}
-            <a href="mailto:privacy@brandcloths44.com">
-              privacy@brandcloths44.com
+            <a href="mailto:hasin6637@gmail.com">
+              hasin6637@gmail.com
             </a>
           </p>
         </div>

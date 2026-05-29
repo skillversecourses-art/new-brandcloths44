@@ -20,9 +20,8 @@ export default function Navbar() {
     <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
       <div className="navbar-inner">
         <Link to="/" className="navbar-logo" onClick={closeMenu}>
-          <span className="logo-brand">BRAND</span>
-          <span className="logo-cloths">CLOTHS</span>
-          <span className="logo-num">44</span>
+          <span className="logo-brand">Berry</span>
+          <span className="logo-cloths">lush</span>
         </Link>
 
         <ul className={`navbar-links ${menuOpen ? 'open' : ''}`}>

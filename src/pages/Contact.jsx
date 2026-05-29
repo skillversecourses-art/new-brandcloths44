@@ -43,9 +43,10 @@ export default function Contact() {
               <h3>Reach Us Directly</h3>
               <div className="info-items">
                 {[
-                  { icon: '📍', label: 'Address', value: '44 Dark Lane, Bandra West, Mumbai - 400050, India' },
-                  { icon: '📧', label: 'Email', value: 'hello@brandcloths44.com' },
-                  { icon: '📞', label: 'Phone', value: '+91 98765 44000' },
+                  { icon: '📍', label: 'Address', value: 'BUILDING NO. 161, GAUTAMBUDDHA NAGAR, UTTAR PARDESH, 201301' },
+                  { icon: '🧾', label: 'GST No.', value: '09QEEPS8747Q1ZW' },
+                  { icon: '📧', label: 'Email', value: 'hasin6637@gmail.com' },
+                  { icon: '📞', label: 'Phone', value: '+91 9350586487' },
                   { icon: '🕐', label: 'Hours', value: 'Mon–Sat: 10am – 8pm IST' },
                 ].map((item, i) => (
                   <div key={i} className="info-item">
@@ -157,7 +158,7 @@ export default function Contact() {
       <div className="map-placeholder">
         <div className="map-inner">
           <span className="map-pin">📍</span>
-          <p>44 Dark Lane, Bandra West, Mumbai</p>
+          <p>BUILDING NO. 161, GAUTAMBUDDHA NAGAR, UTTAR PARDESH, 201301</p>
         </div>
       </div>
     </div>

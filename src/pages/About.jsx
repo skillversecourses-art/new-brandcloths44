@@ -8,7 +8,7 @@ const team = [
 ]
 
 const milestones = [
-  { year: '2020', event: 'BRANDCLOTHS44 launched from a small studio in Mumbai.' },
+  { year: '2020', event: 'Berrylush launched from a small studio in Mumbai.' },
   { year: '2021', event: 'Crossed 5,000 orders. Launched the first premium winter collection.' },
   { year: '2022', event: 'Opened flagship store. Expanded to 12 cities across India.' },
   { year: '2023', event: 'Launched international shipping to 8 countries.' },
@@ -28,7 +28,7 @@ export default function About() {
             <span className="gold-text">Built to Last.</span>
           </h1>
           <p>
-            BRANDCLOTHS44 is not just a fashion label — it's a manifesto.
+            Berrylush is not just a fashion label — it's a manifesto.
             We design for those who don't follow trends. They set them.
           </p>
         </div>
@@ -42,7 +42,7 @@ export default function About() {
               <p className="section-label">Who We Are</p>
               <h2>Dark Fashion for the <span className="gold-text">Unapologetic.</span></h2>
               <p>
-                Founded in 2020 in Mumbai, BRANDCLOTHS44 was created with a single vision:
+                Founded in 2020 in Mumbai, Berrylush was created with a single vision:
                 to give dark fashion a premium home in India. We believe that clothing is
                 armor — every piece you wear should amplify who you are.
               </p>
