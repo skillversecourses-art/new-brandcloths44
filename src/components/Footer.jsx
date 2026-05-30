@@ -9,7 +9,7 @@ export default function Footer() {
           <div className="footer-logo">
             <span>Berry</span><span className="gold">lush</span>
           </div>
-          <p>Premium dark fashion for the bold and the refined. Wear your identity.</p>
+          <p>Premium fashion for the bold and the refined. Wear your identity.</p>
           <div className="footer-socials">
             {['Instagram', 'Twitter', 'Facebook', 'Pinterest'].map(s => (
               <a key={s} href="#" className="social-chip">{s[0]}</a>
@@ -54,11 +54,12 @@ export default function Footer() {
           <p><strong>GST No.:</strong> 09QEEPS8747Q1ZW</p>
           <p><strong>Address:</strong> BUILDING NO. 161, GAUTAMBUDDHA NAGAR, UTTAR PARDESH, 201301</p>
         </div>
-        <p>&copy; 2024 Berrylush. All rights reserved.</p>
+        <p>&copy; 2026 Berrylush. All rights reserved.</p>
         <div className="footer-bottom-links">
           <Link to="/privacy-policy">Privacy Policy</Link>
           <Link to="/terms-conditions">Terms of Service</Link>
-          <Link to="/returns">Returns</Link>
+          <Link to="/shipping-policy">Shipping Policy</Link>
+          <Link to="/returns">Cancellation & Refunds</Link>
         </div>
       </div>
     </footer>

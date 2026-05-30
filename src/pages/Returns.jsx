@@ -4,6 +4,18 @@ import './PrivacyPolicy.css'
 
 const sections = [
   {
+    title: 'Order Cancellation',
+    content: [
+      'We understand that you may change your mind. Orders can be cancelled before they are dispatched.',
+    ],
+    list: [
+      'To cancel an order, log in to your account, go to "My Orders", and click "Cancel Order".',
+      'Alternatively, you can email us at hasin6637@gmail.com within 24 hours of placing the order.',
+      'If the order has already been shipped, it cannot be cancelled. You will need to wait for delivery and then initiate a return.',
+      'For prepaid cancelled orders, the full amount will be refunded to the original payment method within 5-7 business days.',
+    ],
+  },
+  {
     title: 'Return Eligibility',
     content: [
       'We want you to love every piece you buy from Berrylush. If something doesn\'t work out, here\'s what qualifies for a return:',
@@ -91,9 +103,9 @@ export default function Returns() {
         <div className="legal-hero-content">
           <p className="section-label">Support</p>
           <h1>
-            Returns & <span className="gold-text">Exchanges</span>
+            Cancellations & <span className="gold-text">Refunds</span>
           </h1>
-          <p className="legal-updated">Last updated: May 27, 2026</p>
+          <p className="legal-updated">Last updated: May 30, 2026</p>
         </div>
       </section>
 
@@ -102,7 +114,7 @@ export default function Returns() {
           <p>
             At Berrylush, your satisfaction is our priority. We stand behind
             the quality of every piece we create. If for any reason you're not
-            completely happy with your purchase, our hassle-free return and
+            completely happy with your purchase, our hassle-free cancellation, return and
             exchange policy is here to help.
           </p>
         </div>

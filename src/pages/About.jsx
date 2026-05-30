@@ -60,7 +60,7 @@ export default function About() {
               <div className="visual-box">
                 <div className="visual-inner">
                   <span className="visual-number">44</span>
-                  <span className="visual-sub">BRAND<br />CLOTHS</span>
+                  <span className="visual-sub">Berry<br />lush</span>
                 </div>
               </div>
               <div className="visual-stats-col">

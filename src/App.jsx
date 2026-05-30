@@ -11,6 +11,7 @@ import PrivacyPolicy from './pages/PrivacyPolicy'
 import TermsConditions from './pages/TermsConditions'
 import Returns from './pages/Returns'
 import Checkout from './pages/Checkout'
+import ShippingPolicy from './pages/ShippingPolicy'
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
             <Route path="/terms-conditions" element={<TermsConditions />} />
             <Route path="/returns" element={<Returns />} />
+            <Route path="/shipping-policy" element={<ShippingPolicy />} />
             <Route path="/checkout" element={<Checkout />} />
           </Routes>
         </main>

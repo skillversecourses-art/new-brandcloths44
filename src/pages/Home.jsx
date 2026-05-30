@@ -2,26 +2,27 @@ import { Link } from 'react-router-dom'
 import './Home.css'
 import { useCart } from '../context/CartContext'
 
-const BASE = 'https://images.unsplash.com/photo-'
-const Q    = '?w=500&h=600&fit=crop&q=80&auto=format'
+const UNS = 'https://images.unsplash.com/photo-'
+const Q   = '?w=500&h=600&fit=crop&q=82&auto=format'
+const QC  = '?w=700&h=460&fit=crop&q=82&auto=format'
 
 const featured = [
-  { id: 1, name: 'Noir Oversized Tee',   price: 1299, tag: 'New',  img: BASE+'1521572163474-6864f9cf17ab'+Q },
-  { id: 2, name: 'Obsidian Cargo Pants', price: 2899, tag: 'Hot',  img: BASE+'1542272454315-4c01d7abdf4a'+Q },
-  { id: 3, name: 'Shadow Bomber Jacket', price: 4499, tag: 'Sale', img: BASE+'1551028719-00167b16eac5'+Q   },
-  { id: 4, name: 'Dusk Linen Shirt',     price: 1799, tag: 'New',  img: BASE+'1602810318383-e386cc2a3ccf'+Q },
+  { id: 1, name: 'Classic Oversized Tee',  price: 1299, tag: 'New',  img: UNS+'1521572163474-6864f9cf17ab'+Q },
+  { id: 2, name: 'Urban Cargo Pants',      price: 2899, tag: 'Hot',  img: UNS+'1542272454315-4c01d7abdf4a'+Q },
+  { id: 3, name: 'Premium Bomber Jacket',  price: 4499, tag: 'Sale', img: UNS+'1551028719-00167b16eac5'+Q   },
+  { id: 4, name: 'Slim Linen Shirt',       price: 1799, tag: 'New',  img: UNS+'1602810318383-e386cc2a3ccf'+Q },
 ]
 
 const categories = [
-  { name: "Men's Wear", count: 48, color: '#1c1c1c' },
-  { name: "Women's Wear", count: 56, color: '#1a1020' },
-  { name: 'Accessories', count: 32, color: '#0d1a0d' },
-  { name: 'Outerwear', count: 24, color: '#1a100d' },
+  { name: "Men's Wear",   count: 48, img: UNS+'1521572163474-6864f9cf17ab'+QC   },
+  { name: "Women's Wear", count: 56, img: UNS+'1595777457583-95e059d581b8'+QC   },
+  { name: 'Accessories',  count: 32, img: UNS+'1553062407-98eeb64c6a62'+QC      },
+  { name: 'Outerwear',    count: 24, img: UNS+'1539109136881-3be0616acf4b'+QC   },
 ]
 
 const testimonials = [
-  { name: 'Aryan S.', text: 'Best dark fashion brand I\'ve found. The quality is insane and delivery was super fast.', stars: 5 },
-  { name: 'Priya M.', text: 'The bomber jacket is literally perfect. Dark, minimal, fits great. Will order again!', stars: 5 },
+  { name: 'Aryan S.', text: 'Best fashion brand I\'ve found. The quality is insane and delivery was super fast.', stars: 5 },
+  { name: 'Priya M.', text: 'The bomber jacket is literally perfect. Minimal, fits great. Will order again!', stars: 5 },
   { name: 'Rahul K.', text: 'Berrylush has ruined other brands for me. Nothing compares.', stars: 5 },
 ]
 
@@ -41,15 +42,15 @@ export default function Home() {
           <div className="hero-content">
             <div className="hero-eyebrow">
               <span className="dot" />
-              Premium Dark Fashion — 2024 Collection
+              Premium Fashion — 2024 Collection
             </div>
             <h1 className="hero-title">
-              Wear The <span className="gold-text">Dark.</span><br />
-              Define The Bold.
+              Dress With <span className="gold-text">Intent.</span><br />
+              Wear The Bold.
             </h1>
             <p className="hero-subtitle">
-              Curated for those who move in shadows and speak through style.
-              Minimal. Powerful. Unapologetic.
+              Curated for those who speak through style. Refined fabrics,
+              sharp silhouettes, and timeless design — unapologetically you.
             </p>
             <div className="hero-ctas">
               <Link to="/shop" className="btn-primary">Shop Now</Link>
@@ -68,7 +69,7 @@ export default function Home() {
           <div className="hero-visual">
             <div className="hero-badge-spin">
               <div className="badge-ring">
-                <span className="badge-text">Berrylush • EST 2020 • PREMIUM •</span>
+                <span className="badge-text">BERRYLUSH • EST 2020 • PREMIUM •</span>
               </div>
             </div>
             <div className="clothing-card">
@@ -79,25 +80,25 @@ export default function Home() {
               </div>
               <div className="clothing-figure">
                 <img
-                  src="https://images.unsplash.com/photo-1551028719-00167b16eac5?w=600&h=700&fit=crop&q=85&auto=format"
-                  alt="Shadow Bomber Jacket"
+                  src={`${UNS}1551028719-00167b16eac5?w=600&h=700&fit=crop&q=85&auto=format`}
+                  alt="Premium Bomber Jacket"
                   className="hero-clothing-img"
                 />
               </div>
               <div className="clothing-details">
                 <div className="cd-row">
-                  <span className="cd-name">Shadow Bomber Jacket</span>
+                  <span className="cd-name">Premium Bomber Jacket</span>
                   <span className="cd-price">₹4,499</span>
                 </div>
                 <div className="cd-bottom-row">
                   <div className="cd-colors">
                     <span className="color-dot active" style={{background:'#1a1a1a'}} />
-                    <span className="color-dot" style={{background:'#1e2a3a'}} />
-                    <span className="color-dot" style={{background:'#2a1a1a'}} />
+                    <span className="color-dot" style={{background:'#2c3e50'}} />
+                    <span className="color-dot" style={{background:'#4a3728'}} />
                   </div>
                   <button
                     className="cd-add-btn"
-                    onClick={() => addToCart({ id: 3, name: 'Shadow Bomber Jacket', price: 4499, img: 'https://images.unsplash.com/photo-1551028719-00167b16eac5?w=500&h=600&fit=crop&q=80&auto=format' })}
+                    onClick={() => addToCart({ id: 3, name: 'Premium Bomber Jacket', price: 4499, img: UNS+'1551028719-00167b16eac5'+Q })}
                   >
                     Add to Cart
                   </button>
@@ -120,7 +121,7 @@ export default function Home() {
       {/* MARQUEE */}
       <div className="marquee-wrap">
         <div className="marquee-track">
-          {Array(3).fill(['NEW ARRIVALS', 'PREMIUM QUALITY', 'DARK FASHION', 'EXCLUSIVE DROPS', 'FREE SHIPPING']).flat().map((t, i) => (
+          {Array(3).fill(['NEW ARRIVALS', 'PREMIUM QUALITY', 'FRESH STYLES', 'EXCLUSIVE DROPS', 'FREE SHIPPING']).flat().map((t, i) => (
             <span key={i}>{t} <span className="mx">✦</span></span>
           ))}
         </div>
@@ -135,7 +136,12 @@ export default function Home() {
           </div>
           <div className="categories-grid">
             {categories.map((cat, i) => (
-              <Link to="/shop" key={i} className="cat-card" style={{ background: cat.color }}>
+              <Link
+                to="/shop"
+                key={i}
+                className="cat-card"
+                style={{ backgroundImage: `url(${cat.img})`, backgroundSize: 'cover', backgroundPosition: 'center top' }}
+              >
                 <div className="cat-overlay" />
                 <div className="cat-content">
                   <span className="cat-count">{cat.count} items</span>
@@ -184,7 +190,7 @@ export default function Home() {
         <div className="banner-content">
           <p className="section-label">Limited Time</p>
           <h2>Get 20% Off Your First Order</h2>
-          <p>Use code <strong>DARK20</strong> at checkout. Minimum order ₹999.</p>
+          <p>Use code <strong>BC44FIRST</strong> at checkout. Minimum order ₹999.</p>
           <Link to="/shop" className="btn-primary">Claim Offer</Link>
         </div>
       </section>
@@ -213,10 +219,10 @@ export default function Home() {
         <div className="container">
           <div className="features-grid">
             {[
-              { icon: '🚚', title: 'Free Shipping', desc: 'On all orders above ₹999' },
-              { icon: '↩️', title: 'Easy Returns', desc: '7-day hassle-free returns' },
-              { icon: '🔒', title: 'Secure Payments', desc: 'UPI, Cards, COD available' },
-              { icon: '✨', title: 'Premium Quality', desc: 'Handpicked fabrics & crafts' },
+              { icon: '🚚', title: 'Free Shipping',    desc: 'On all orders above ₹999' },
+              { icon: '↩️', title: 'Easy Returns',     desc: '7-day hassle-free returns' },
+              { icon: '🔒', title: 'Secure Payments',  desc: 'UPI, Cards, COD available' },
+              { icon: '✨', title: 'Premium Quality',  desc: 'Handpicked fabrics & crafts' },
             ].map((f, i) => (
               <div key={i} className="feature-item">
                 <span className="feature-icon">{f.icon}</span>
