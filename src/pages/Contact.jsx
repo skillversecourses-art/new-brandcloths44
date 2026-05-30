@@ -43,8 +43,8 @@ export default function Contact() {
               <h3>Reach Us Directly</h3>
               <div className="info-items">
                 {[
-                  { icon: '📍', label: 'Address', value: 'BUILDING NO. 161, GAUTAMBUDDHA NAGAR, UTTAR PARDESH, 201301' },
-                  { icon: '🧾', label: 'GST No.', value: '09QEEPS8747Q1ZW' },
+                  { icon: '📍', label: 'Address', value: 'Building No. 161, Bengaluru Bellary Road, Bengaluru, Karnataka – 560001' },
+                  { icon: '🧾', label: 'GST No.', value: '29JCLPP1285E1Z3' },
                   { icon: '📧', label: 'Email', value: 'hasin6637@gmail.com' },
                   { icon: '📞', label: 'Phone', value: '+91 9350586487' },
                   { icon: '🕐', label: 'Hours', value: 'Mon–Sat: 10am – 8pm IST' },
@@ -158,7 +158,7 @@ export default function Contact() {
       <div className="map-placeholder">
         <div className="map-inner">
           <span className="map-pin">📍</span>
-          <p>BUILDING NO. 161, GAUTAMBUDDHA NAGAR, UTTAR PARDESH, 201301</p>
+          <p>Building No. 161, Bengaluru Bellary Road, Bengaluru, Karnataka – 560001</p>
         </div>
       </div>
     </div>

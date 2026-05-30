@@ -18,7 +18,7 @@ const sections = [
   {
     title: 'Return Eligibility',
     content: [
-      'We want you to love every piece you buy from Berrylush. If something doesn\'t work out, here\'s what qualifies for a return:',
+      'We want you to love every piece you buy from BrandCloths44. If something doesn\'t work out, here\'s what qualifies for a return:',
     ],
     list: [
       'Items must be returned within 7 days of delivery',
@@ -34,7 +34,7 @@ const sections = [
       'Returning an item is simple. Follow these steps:',
     ],
     list: [
-      'Log in to your Berrylush account and navigate to "My Orders"',
+      'Log in to your BrandCloths44 account and navigate to "My Orders"',
       'Select the order containing the item you wish to return',
       'Click "Request Return" and provide a reason for the return',
       'You will receive a confirmation email with return instructions and a shipping label',
@@ -112,7 +112,7 @@ export default function Returns() {
       <div className="legal-body">
         <div className="legal-section">
           <p>
-            At Berrylush, your satisfaction is our priority. We stand behind
+            At BrandCloths44, your satisfaction is our priority. We stand behind
             the quality of every piece we create. If for any reason you're not
             completely happy with your purchase, our hassle-free cancellation, return and
             exchange policy is here to help.

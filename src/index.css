@@ -5,39 +5,69 @@
 }
 
 :root {
-  --bg-primary:    #ffffff;
-  --bg-secondary:  #f7f4ee;
-  --bg-card:       #ffffff;
-  --bg-hover:      #f0ece3;
-  --accent:        #b8922a;
-  --accent-light:  #d4a840;
-  --accent-dark:   #8a6a1a;
-  --text-primary:  #1c1c1c;
-  --text-secondary:#555555;
-  --text-muted:    #999999;
-  --border:        #e5e0d5;
-  --border-light:  #ede9e0;
+  /* ── Dark Base ── */
+  --bg-primary:    #0a0a0f;
+  --bg-secondary:  #111118;
+  --bg-card:       rgba(255,255,255,0.04);
+  --bg-hover:      rgba(255,255,255,0.07);
+  --bg-glass:      rgba(255,255,255,0.06);
+
+  /* ── Accent: Coral + Violet ── */
+  --accent:        #ff6b4a;
+  --accent-light:  #ff8a6e;
+  --accent-dark:   #e0542e;
+  --accent2:       #8b5cf6;
+  --accent2-light: #a78bfa;
+  --gradient:      linear-gradient(135deg, #ff6b4a, #8b5cf6);
+  --gradient-soft: linear-gradient(135deg, rgba(255,107,74,0.15), rgba(139,92,246,0.15));
+
+  /* ── Text ── */
+  --text-primary:  #e8e6e3;
+  --text-secondary:#9a9a9a;
+  --text-muted:    #5a5a5a;
+
+  /* ── Borders ── */
+  --border:        rgba(255,255,255,0.08);
+  --border-light:  rgba(255,255,255,0.05);
+
+  /* ── Utility ── */
   --white:         #ffffff;
-  --red:           #dc3545;
-  --green:         #22a45d;
+  --red:           #ef4444;
+  --green:         #22c55e;
+
+  /* ── Radius ── */
+  --radius-sm:     8px;
+  --radius-md:     14px;
+  --radius-lg:     20px;
+  --radius-pill:   50px;
 }
 
 html { scroll-behavior: smooth; }
 
 body {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Space Grotesk', sans-serif;
   background-color: var(--bg-primary);
   color: var(--text-primary);
   line-height: 1.6;
   overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 a { text-decoration: none; color: inherit; }
 ul { list-style: none; }
 img { max-width: 100%; display: block; }
-button { cursor: pointer; font-family: 'Montserrat', sans-serif; }
-input, textarea, select { font-family: 'Montserrat', sans-serif; }
+button { cursor: pointer; font-family: 'Space Grotesk', sans-serif; }
+input, textarea, select { font-family: 'Space Grotesk', sans-serif; }
 
-::-webkit-scrollbar { width: 6px; }
+/* ── Scrollbar — sleek dark ── */
+::-webkit-scrollbar { width: 5px; }
 ::-webkit-scrollbar-track { background: var(--bg-secondary); }
-::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 3px; }
+::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 10px; }
+::-webkit-scrollbar-thumb:hover { background: var(--accent-light); }
+
+/* ── Selection ── */
+::selection {
+  background: rgba(255,107,74,0.3);
+  color: var(--white);
+}

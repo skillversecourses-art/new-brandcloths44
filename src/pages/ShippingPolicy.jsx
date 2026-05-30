@@ -29,7 +29,7 @@ const sections = [
     list: [
       'International shipping rates are calculated dynamically at checkout based on weight and destination.',
       'Delivery typically takes 7-14 business days depending on the destination country.',
-      'Your order may be subject to import duties and taxes (including VAT), which are incurred once a shipment reaches your destination country. Berrylush is not responsible for these charges if they are applied and are your responsibility as the customer.',
+      'Your order may be subject to import duties and taxes (including VAT), which are incurred once a shipment reaches your destination country. BrandCloths44 is not responsible for these charges if they are applied and are your responsibility as the customer.',
     ],
   },
   {
@@ -74,7 +74,7 @@ export default function ShippingPolicy() {
       <div className="legal-body">
         <div className="legal-section">
           <p>
-            At Berrylush, we are committed to delivering your orders quickly and securely. 
+            At BrandCloths44, we are committed to delivering your orders quickly and securely. 
             This Shipping & Delivery Policy outlines our processing times, shipping rates, 
             and delivery procedures to ensure a smooth shopping experience.
           </p>

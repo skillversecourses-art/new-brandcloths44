@@ -1,8 +1,9 @@
 .contact-page { padding-top: 80px; }
 
+/* ── Hero ── */
 .contact-hero {
   position: relative;
-  min-height: 45vh;
+  min-height: 40vh;
   display: flex;
   align-items: center;
   padding: 80px 40px;
@@ -13,8 +14,9 @@
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(ellipse at 60% 50%, rgba(201,168,76,0.1) 0%, transparent 60%),
-    linear-gradient(180deg, transparent 0%, var(--bg-secondary) 100%);
+    radial-gradient(ellipse at 60% 50%, rgba(139, 92, 246, 0.08) 0%, transparent 60%),
+    radial-gradient(ellipse at 20% 30%, rgba(255, 107, 74, 0.06) 0%, transparent 50%),
+    var(--bg-primary);
 }
 
 .contact-hero-content {
@@ -26,11 +28,12 @@
 }
 
 .contact-hero-content h1 {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Syne', sans-serif;
   font-size: clamp(2.5rem, 5vw, 4rem);
-  font-weight: 700;
+  font-weight: 800;
   line-height: 1.15;
   margin: 16px 0 16px;
+  letter-spacing: -0.5px;
 }
 
 .contact-hero-content p {
@@ -38,15 +41,25 @@
   color: var(--text-secondary);
 }
 
-.gold-text { color: var(--accent); font-style: italic; }
+.gold-text {
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-style: normal;
+}
 
 .section-label {
+  display: inline-block;
   font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 3px;
   text-transform: uppercase;
   color: var(--accent);
-  display: block;
+  background: rgba(255, 107, 74, 0.08);
+  padding: 6px 16px;
+  border-radius: var(--radius-pill);
+  border: 1px solid rgba(255, 107, 74, 0.12);
   margin-bottom: 12px;
 }
 
@@ -56,13 +69,14 @@
 }
 
 .section-header h2 {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Syne', sans-serif;
   font-size: clamp(1.8rem, 3vw, 2.6rem);
-  font-weight: 700;
+  font-weight: 800;
   color: var(--text-primary);
+  letter-spacing: -0.5px;
 }
 
-/* CONTACT GRID */
+/* ── Contact Grid ── */
 .contact-section {
   padding: 80px 0;
   background: var(--bg-secondary);
@@ -77,11 +91,12 @@
 .contact-grid {
   display: grid;
   grid-template-columns: 1fr 1.6fr;
-  gap: 64px;
+  gap: 48px;
 }
 
 .contact-info h3 {
-  font-size: 1.1rem;
+  font-family: 'Syne', sans-serif;
+  font-size: 1.2rem;
   font-weight: 700;
   margin-bottom: 32px;
   color: var(--text-primary);
@@ -105,7 +120,7 @@
 .info-label {
   display: block;
   font-size: 0.65rem;
-  font-weight: 800;
+  font-weight: 700;
   letter-spacing: 2px;
   text-transform: uppercase;
   color: var(--accent);
@@ -119,7 +134,8 @@
 }
 
 .social-links h4 {
-  font-size: 0.75rem;
+  font-family: 'Syne', sans-serif;
+  font-size: 0.78rem;
   font-weight: 700;
   letter-spacing: 2px;
   text-transform: uppercase;
@@ -135,25 +151,27 @@
 
 .social-link {
   padding: 8px 16px;
-  background: var(--bg-card);
-  border: 1px solid var(--border-light);
+  background: var(--bg-glass);
+  border: 1px solid var(--border);
   color: var(--text-secondary);
   font-size: 0.72rem;
   font-weight: 600;
   letter-spacing: 1px;
+  border-radius: var(--radius-pill);
   transition: all 0.3s;
 }
 
 .social-link:hover {
   background: var(--accent);
-  color: var(--bg-primary);
+  color: var(--white);
   border-color: var(--accent);
 }
 
-/* FORM */
+/* ── Form ── */
 .contact-form-wrap {
-  background: var(--bg-card);
+  background: var(--bg-glass);
   border: 1px solid var(--border);
+  border-radius: var(--radius-md);
   padding: 40px;
 }
 
@@ -176,20 +194,21 @@
 }
 
 .form-group label {
-  font-size: 0.7rem;
-  font-weight: 700;
-  letter-spacing: 2px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 1.5px;
   text-transform: uppercase;
   color: var(--text-secondary);
 }
 
 .form-group input,
 .form-group textarea {
-  background: var(--bg-secondary);
-  border: 1px solid var(--border-light);
+  background: var(--bg-primary);
+  border: 1px solid var(--border);
   color: var(--text-primary);
   padding: 14px 16px;
   font-size: 0.88rem;
+  border-radius: var(--radius-sm);
   outline: none;
   resize: vertical;
   transition: border-color 0.3s;
@@ -206,21 +225,24 @@
 }
 
 .submit-btn {
-  background: var(--accent);
-  color: var(--bg-primary);
+  background: var(--gradient);
+  color: var(--white);
   border: none;
   padding: 16px;
-  font-size: 0.78rem;
-  font-weight: 800;
-  letter-spacing: 2.5px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
   text-transform: uppercase;
+  border-radius: var(--radius-pill);
   transition: all 0.3s;
   margin-top: 8px;
+  box-shadow: 0 4px 16px rgba(255, 107, 74, 0.25);
 }
 
 .submit-btn:hover {
-  background: var(--accent-light);
+  opacity: 0.9;
   transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(255, 107, 74, 0.35);
 }
 
 .success-msg {
@@ -233,15 +255,17 @@
   width: 64px;
   height: 64px;
   border-radius: 50%;
-  background: var(--accent);
-  color: var(--bg-primary);
+  background: var(--gradient);
+  color: var(--white);
   font-size: 1.8rem;
   align-items: center;
   justify-content: center;
   margin-bottom: 20px;
+  box-shadow: 0 4px 20px rgba(255, 107, 74, 0.3);
 }
 
 .success-msg h3 {
+  font-family: 'Syne', sans-serif;
   font-size: 1.4rem;
   font-weight: 700;
   margin-bottom: 8px;
@@ -252,7 +276,7 @@
   color: var(--text-secondary);
 }
 
-/* FAQ */
+/* ── FAQ ── */
 .faq-section { padding: 80px 0; }
 
 .faq-list {
@@ -264,12 +288,13 @@
 }
 
 .faq-item {
-  background: var(--bg-card);
+  background: var(--bg-glass);
   border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
   transition: border-color 0.3s;
 }
 
-.faq-item.open { border-color: var(--accent); }
+.faq-item.open { border-color: rgba(255, 107, 74, 0.2); }
 
 .faq-q {
   width: 100%;
@@ -307,7 +332,7 @@
   line-height: 1.8;
 }
 
-/* MAP */
+/* ── Map ── */
 .map-placeholder {
   height: 300px;
   background: var(--bg-secondary);

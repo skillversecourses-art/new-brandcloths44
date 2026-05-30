@@ -266,7 +266,7 @@ const Overcoat = () => (
     <rect x="157" y="265" width="50" height="48" rx="3" fill={L} stroke={S} strokeWidth="1.1"/>
     <path d="M57 110 Q47 135 50 160" stroke={G} strokeWidth="0.9" fill="none" opacity="0.3"/>
     <path d="M213 110 Q223 135 220 160" stroke={G} strokeWidth="0.9" fill="none" opacity="0.3"/>
-    <text x="135" y="328" textAnchor="middle" fill={G} fontSize="5" fontFamily="Montserrat" fontWeight="800" opacity="0.5">Berrylush</text>
+    <text x="135" y="328" textAnchor="middle" fill={G} fontSize="5" fontFamily="Montserrat" fontWeight="800" opacity="0.5">BrandCloths44</text>
   </svg>
 )
 

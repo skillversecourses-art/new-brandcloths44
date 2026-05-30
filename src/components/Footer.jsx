@@ -4,10 +4,12 @@ import './Footer.css'
 export default function Footer() {
   return (
     <footer className="footer">
+      <div className="footer-glow" />
       <div className="footer-top">
         <div className="footer-brand">
           <div className="footer-logo">
-            <span>Berry</span><span className="gold">lush</span>
+            <span className="f-logo-mark">BC</span>
+            <span>BrandCloths<span className="f-logo-44">44</span></span>
           </div>
           <p>Premium fashion for the bold and the refined. Wear your identity.</p>
           <div className="footer-socials">
@@ -49,12 +51,12 @@ export default function Footer() {
       </div>
 
       <div className="footer-bottom">
-        <div className="footer-legal-info" style={{ textAlign: 'left', marginBottom: '1rem', fontSize: '0.85rem', color: '#888' }}>
-          <p><strong>Legal Name:</strong> SUREHBEEL</p>
-          <p><strong>GST No.:</strong> 09QEEPS8747Q1ZW</p>
-          <p><strong>Address:</strong> BUILDING NO. 161, GAUTAMBUDDHA NAGAR, UTTAR PARDESH, 201301</p>
+        <div className="footer-legal-info">
+          <p><strong>Legal Name:</strong> Punit (Proprietor, Brand Clothes 44)</p>
+          <p><strong>GST No.:</strong> 29JCLPP1285E1Z3</p>
+          <p><strong>Address:</strong> Building No. 161, Bengaluru Bellary Road, Bengaluru, Karnataka – 560001</p>
         </div>
-        <p>&copy; 2026 Berrylush. All rights reserved.</p>
+        <p>&copy; 2026 BrandCloths44. All rights reserved.</p>
         <div className="footer-bottom-links">
           <Link to="/privacy-policy">Privacy Policy</Link>
           <Link to="/terms-conditions">Terms of Service</Link>
