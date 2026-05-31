@@ -105,7 +105,7 @@ export default function About() {
               { icon: '🧾', label: 'GST Number', value: '29JCLPP1285E1Z3' },
               { icon: '📍', label: 'Registered Address', value: 'Building No. 161, Bengaluru Bellary Road, Bengaluru, Karnataka – 560001' },
               { icon: '📧', label: 'Email', value: 'hasin6637@gmail.com' },
-              { icon: '📞', label: 'Phone', value: '+91 9350586487' },
+              { icon: '📞', label: 'Phone', value: '+91 9217807543' },
             ].map((item, i) => (
               <div key={i} className="business-detail-card">
                 <span className="business-detail-icon">{item.icon}</span>

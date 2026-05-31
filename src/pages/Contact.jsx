@@ -46,7 +46,7 @@ export default function Contact() {
                   { icon: '📍', label: 'Address', value: 'Building No. 161, Bengaluru Bellary Road, Bengaluru, Karnataka – 560001' },
                   { icon: '🧾', label: 'GST No.', value: '29JCLPP1285E1Z3' },
                   { icon: '📧', label: 'Email', value: 'hasin6637@gmail.com' },
-                  { icon: '📞', label: 'Phone', value: '+91 9350586487' },
+                  { icon: '📞', label: 'Phone', value: '+91 9217807543' },
                   { icon: '🕐', label: 'Hours', value: 'Mon–Sat: 10am – 8pm IST' },
                 ].map((item, i) => (
                   <div key={i} className="info-item">
@@ -65,7 +65,7 @@ export default function Contact() {
                   <a href="https://instagram.com/brandcloths44" target="_blank" rel="noopener noreferrer" className="social-link">Instagram</a>
                   <a href="https://twitter.com/brandcloths44" target="_blank" rel="noopener noreferrer" className="social-link">Twitter</a>
                   <a href="https://facebook.com/brandcloths44" target="_blank" rel="noopener noreferrer" className="social-link">Facebook</a>
-                  <a href="https://wa.me/919350586487" target="_blank" rel="noopener noreferrer" className="social-link">WhatsApp</a>
+                  <a href="https://wa.me/919217807543" target="_blank" rel="noopener noreferrer" className="social-link">WhatsApp</a>
                 </div>
               </div>
             </div>
