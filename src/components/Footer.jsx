@@ -13,9 +13,10 @@ export default function Footer() {
           </div>
           <p>Premium fashion for the bold and the refined. Wear your identity.</p>
           <div className="footer-socials">
-            {['Instagram', 'Twitter', 'Facebook', 'Pinterest'].map(s => (
-              <a key={s} href="#" className="social-chip">{s[0]}</a>
-            ))}
+            <a href="https://instagram.com/brandcloths44" target="_blank" rel="noopener noreferrer" className="social-chip" aria-label="Instagram">I</a>
+            <a href="https://twitter.com/brandcloths44" target="_blank" rel="noopener noreferrer" className="social-chip" aria-label="Twitter">T</a>
+            <a href="https://facebook.com/brandcloths44" target="_blank" rel="noopener noreferrer" className="social-chip" aria-label="Facebook">F</a>
+            <a href="https://pinterest.com/brandcloths44" target="_blank" rel="noopener noreferrer" className="social-chip" aria-label="Pinterest">P</a>
           </div>
         </div>
 
@@ -32,11 +33,11 @@ export default function Footer() {
         <div className="footer-col">
           <h4>Categories</h4>
           <ul>
-            <li><a href="#">Men's Collection</a></li>
-            <li><a href="#">Women's Collection</a></li>
-            <li><a href="#">Accessories</a></li>
-            <li><a href="#">New Arrivals</a></li>
-            <li><a href="#">Sale</a></li>
+            <li><Link to="/shop">Men's Collection</Link></li>
+            <li><Link to="/shop">Women's Collection</Link></li>
+            <li><Link to="/shop">Accessories</Link></li>
+            <li><Link to="/shop">New Arrivals</Link></li>
+            <li><Link to="/shop">Sale</Link></li>
           </ul>
         </div>
 
@@ -47,6 +48,28 @@ export default function Footer() {
             <input type="email" placeholder="Your email" />
             <button type="submit">Subscribe</button>
           </form>
+        </div>
+      </div>
+
+      {/* Payment Methods & Trust Badges */}
+      <div className="footer-payment-strip">
+        <div className="footer-payment-methods">
+          <span className="footer-payment-label">We Accept</span>
+          <div className="footer-payment-badges">
+            <span className="f-pay-badge">Visa</span>
+            <span className="f-pay-badge">Mastercard</span>
+            <span className="f-pay-badge">RuPay</span>
+            <span className="f-pay-badge">UPI</span>
+            <span className="f-pay-badge">GPay</span>
+            <span className="f-pay-badge">PhonePe</span>
+            <span className="f-pay-badge">Net Banking</span>
+          </div>
+        </div>
+        <div className="footer-secured-by">
+          <svg width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          </svg>
+          <span>Secured by <strong>Razorpay & Cashfree</strong></span>
         </div>
       </div>
 

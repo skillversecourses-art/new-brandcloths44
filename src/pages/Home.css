@@ -502,6 +502,14 @@
   background-clip: text;
 }
 
+.stagger-tax-note {
+  font-size: 0.6rem;
+  color: var(--text-muted);
+  letter-spacing: 0.5px;
+  display: block;
+  margin-top: 2px;
+}
+
 .stagger-cart-btn {
   width: 36px;
   height: 36px;

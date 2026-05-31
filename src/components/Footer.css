@@ -159,6 +159,64 @@
   transform: translateY(-1px);
 }
 
+/* ── Payment Strip ── */
+.footer-payment-strip {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 20px 40px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.footer-payment-methods {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.footer-payment-label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.footer-payment-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.f-pay-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  background: var(--bg-glass);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+}
+
+.footer-secured-by {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.78rem;
+  color: var(--green);
+}
+
+.footer-secured-by svg { flex-shrink: 0; }
+
 /* ── Bottom ── */
 .footer-bottom {
   max-width: 1280px;

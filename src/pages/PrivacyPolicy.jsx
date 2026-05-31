@@ -36,12 +36,13 @@ const sections = [
       'We respect your privacy and do not sell your personal information to third parties. We may share your data only in the following circumstances:',
     ],
     list: [
-      'With trusted service providers who assist in order fulfillment, shipping, and payment processing',
+      'With Razorpay Software Private Ltd. and Cashfree Payments India Pvt. Ltd., our payment gateway partners, for secure payment processing. Both Razorpay and Cashfree are PCI-DSS compliant and process your payment information in accordance with their privacy policies.',
+      'With trusted service providers who assist in order fulfillment and shipping',
       'With analytics partners to improve our website performance (anonymized data only)',
       'When required by law or to protect our legal rights',
       'In connection with a business transfer, merger, or acquisition',
     ],
-    highlight: 'All third-party service providers are contractually obligated to protect your data and use it only for the purposes we specify.',
+    highlight: 'All third-party service providers, including Razorpay and Cashfree, are contractually obligated to protect your data and use it only for the purposes we specify. Your card details are never stored on our servers.'
   },
   {
     title: 'Cookies & Tracking',
@@ -53,7 +54,8 @@ const sections = [
   {
     title: 'Data Security',
     content: [
-      'We implement industry-standard security measures to protect your personal information, including SSL encryption, secure payment gateways, and regular security audits.',
+      'We implement industry-standard security measures to protect your personal information, including 256-bit SSL encryption, PCI-DSS compliant payment processing via Razorpay and Cashfree, and regular security audits.',
+      'All payment transactions are processed through Razorpay and Cashfree\'s secure, encrypted infrastructure. We never store, collect, or have access to your complete card details — they are handled entirely by our payment partners.',
     ],
     highlight: 'While we strive to protect your data, no method of transmission over the internet is 100% secure. We encourage you to use strong passwords and keep your account credentials confidential.',
   },

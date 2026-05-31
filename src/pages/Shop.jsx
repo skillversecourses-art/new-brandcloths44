@@ -145,6 +145,7 @@ export default function Shop() {
                     <h4>{p.name}</h4>
                     <div className="shop-card-bottom">
                       <span className="shop-price">₹{p.price.toLocaleString()}</span>
+                      <span className="shop-tax-note">Incl. of all taxes</span>
                       <button
                         className={`add-to-cart ${inCart(p.id) ? 'added' : ''}`}
                         onClick={() => handleAdd(p)}

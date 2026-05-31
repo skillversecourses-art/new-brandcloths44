@@ -1,12 +1,6 @@
 import { Link } from 'react-router-dom'
 import './About.css'
 
-const team = [
-  { name: 'Aryan Mehta', role: 'Founder & Creative Director', initials: 'AM' },
-  { name: 'Sana Qureshi', role: 'Head of Design', initials: 'SQ' },
-  { name: 'Dev Sharma', role: 'Brand Strategist', initials: 'DS' },
-]
-
 const milestones = [
   { year: '2020', event: 'BrandCloths44 launched from a small studio in Mumbai.' },
   { year: '2021', event: 'Crossed 5,000 orders. Launched the first premium winter collection.' },
@@ -97,22 +91,27 @@ export default function About() {
         </div>
       </section>
 
-      {/* TEAM */}
+      {/* BUSINESS DETAILS */}
       <section className="about-team">
         <div className="container">
           <div className="section-header">
-            <p className="section-label">The Minds</p>
-            <h2>Meet the Team</h2>
+            <p className="section-label">Our Business</p>
+            <h2>Registered Details</h2>
           </div>
-          <div className="team-grid">
-            {team.map((m, i) => (
-              <div key={i} className="team-card">
-                <div className="team-avatar">
-                  <span>{m.initials}</span>
-                </div>
-                <div className="team-info">
-                  <h4>{m.name}</h4>
-                  <span>{m.role}</span>
+          <div className="business-details-grid">
+            {[
+              { icon: '👤', label: 'Proprietor', value: 'Punit' },
+              { icon: '🏢', label: 'Business Name', value: 'Brand Clothes 44' },
+              { icon: '🧾', label: 'GST Number', value: '29JCLPP1285E1Z3' },
+              { icon: '📍', label: 'Registered Address', value: 'Building No. 161, Bengaluru Bellary Road, Bengaluru, Karnataka – 560001' },
+              { icon: '📧', label: 'Email', value: 'hasin6637@gmail.com' },
+              { icon: '📞', label: 'Phone', value: '+91 9350586487' },
+            ].map((item, i) => (
+              <div key={i} className="business-detail-card">
+                <span className="business-detail-icon">{item.icon}</span>
+                <div>
+                  <span className="business-detail-label">{item.label}</span>
+                  <p className="business-detail-value">{item.value}</p>
                 </div>
               </div>
             ))}

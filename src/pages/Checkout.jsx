@@ -5,6 +5,9 @@ import './Checkout.css'
 
 const STEPS = ['Shipping', 'Payment', 'Review', 'Confirmation']
 
+// Replace with your actual Razorpay Key ID
+const RAZORPAY_KEY_ID = 'rzp_test_XXXXXXXXXXXXX'
+
 function generateOrderId() {
   return 'BC44-' + Date.now().toString(36).toUpperCase() + '-' + Math.random().toString(36).substring(2, 6).toUpperCase()
 }
@@ -15,6 +18,7 @@ export default function Checkout() {
   const [step, setStep] = useState(0)
   const [orderId, setOrderId] = useState('')
   const [processing, setProcessing] = useState(false)
+  const [paymentError, setPaymentError] = useState('')
 
   // Shipping form
   const [shipping, setShipping] = useState({
@@ -24,10 +28,7 @@ export default function Checkout() {
   })
 
   // Payment
-  const [paymentMethod, setPaymentMethod] = useState('card')
-  const [card, setCard] = useState({
-    number: '', name: '', expiry: '', cvv: ''
-  })
+  const [paymentMethod, setPaymentMethod] = useState('online')
 
   // Validation errors
   const [errors, setErrors] = useState({})
@@ -36,10 +37,11 @@ export default function Checkout() {
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }, [step])
 
-  // Pricing
-  const shipping_cost = cartTotal >= 2000 ? 0 : 149
+  // Pricing — Free shipping above ₹999
+  const shipping_cost = cartTotal >= 999 ? 0 : 50
   const tax = Math.round(cartTotal * 0.05)
-  const total = cartTotal + shipping_cost + tax
+  const cod_charge = paymentMethod === 'cod' ? 49 : 0
+  const total = cartTotal + shipping_cost + tax + cod_charge
 
   // ── Validation ──
   function validateShipping() {
@@ -59,60 +61,107 @@ export default function Checkout() {
     return Object.keys(errs).length === 0
   }
 
-  function validatePayment() {
-    if (paymentMethod !== 'card') return true
-    const errs = {}
-    const num = card.number.replace(/\s/g, '')
-    if (!num) errs.cardNumber = 'Card number is required'
-    else if (!/^\d{16}$/.test(num)) errs.cardNumber = 'Enter a valid 16-digit card number'
-    if (!card.name.trim()) errs.cardName = 'Cardholder name is required'
-    if (!card.expiry.trim()) errs.cardExpiry = 'Expiry is required'
-    else if (!/^\d{2}\/\d{2}$/.test(card.expiry)) errs.cardExpiry = 'Use MM/YY format'
-    if (!card.cvv.trim()) errs.cardCvv = 'CVV is required'
-    else if (!/^\d{3,4}$/.test(card.cvv)) errs.cardCvv = 'Enter a valid CVV'
-    setErrors(errs)
-    return Object.keys(errs).length === 0
+  // ── Razorpay Payment ──
+  function initiateRazorpayPayment() {
+    setPaymentError('')
+    setProcessing(true)
+
+    const options = {
+      key: RAZORPAY_KEY_ID,
+      amount: total * 100, // Razorpay expects amount in paise
+      currency: 'INR',
+      name: 'BrandCloths44',
+      description: `Order: ${cartCount} item${cartCount > 1 ? 's' : ''} — Premium Fashion`,
+      image: '', // Add your logo URL here
+      handler: function (response) {
+        // Payment successful
+        const newOrderId = generateOrderId()
+        setOrderId(newOrderId)
+        setProcessing(false)
+        setStep(3)
+        clearCart()
+      },
+      prefill: {
+        name: `${shipping.firstName} ${shipping.lastName}`,
+        email: shipping.email,
+        contact: shipping.phone,
+      },
+      notes: {
+        address: `${shipping.address}, ${shipping.city}, ${shipping.state} - ${shipping.pincode}`,
+        order_notes: shipping.notes || 'None',
+      },
+      theme: {
+        color: '#c9a84c',
+        backdrop_color: 'rgba(0, 0, 0, 0.7)',
+      },
+      modal: {
+        ondismiss: function () {
+          setProcessing(false)
+          setPaymentError('Payment was cancelled. Please try again.')
+        },
+        confirm_close: true,
+        escape: false,
+      },
+      method: {
+        netbanking: true,
+        card: true,
+        upi: true,
+        wallet: true,
+      },
+    }
+
+    try {
+      const rzp = new window.Razorpay(options)
+      rzp.on('payment.failed', function (response) {
+        setProcessing(false)
+        setPaymentError(
+          response.error.description || 'Payment failed. Please try again.'
+        )
+      })
+      rzp.open()
+    } catch (err) {
+      setProcessing(false)
+      setPaymentError('Unable to initialize payment. Please refresh and try again.')
+    }
+  }
+
+  // ── COD Order ──
+  function placeCodOrder() {
+    setProcessing(true)
+    setPaymentError('')
+    setTimeout(() => {
+      setOrderId(generateOrderId())
+      setProcessing(false)
+      setStep(3)
+      clearCart()
+    }, 1500)
   }
 
   function handleNext() {
     if (step === 0 && !validateShipping()) return
-    if (step === 1 && !validatePayment()) return
     if (step === 2) {
       // Place order
-      setProcessing(true)
-      setTimeout(() => {
-        setOrderId(generateOrderId())
-        setProcessing(false)
-        setStep(3)
-        clearCart()
-      }, 2200)
+      if (paymentMethod === 'online') {
+        initiateRazorpayPayment()
+      } else {
+        placeCodOrder()
+      }
       return
     }
     setErrors({})
+    setPaymentError('')
     setStep(s => s + 1)
   }
 
   function handleBack() {
     setErrors({})
+    setPaymentError('')
     setStep(s => s - 1)
   }
 
   function updateShipping(field, value) {
     setShipping(prev => ({ ...prev, [field]: value }))
     if (errors[field]) setErrors(prev => { const n = { ...prev }; delete n[field]; return n })
-  }
-
-  function updateCard(field, value) {
-    if (field === 'number') {
-      value = value.replace(/\D/g, '').substring(0, 16)
-      value = value.replace(/(\d{4})/g, '$1 ').trim()
-    }
-    if (field === 'expiry') {
-      value = value.replace(/\D/g, '').substring(0, 4)
-      if (value.length >= 3) value = value.substring(0, 2) + '/' + value.substring(2)
-    }
-    if (field === 'cvv') value = value.replace(/\D/g, '').substring(0, 4)
-    setCard(prev => ({ ...prev, [field]: value }))
   }
 
   // ── Empty cart guard ──
@@ -190,8 +239,7 @@ export default function Checkout() {
                 <div className="confirmation-details-row">
                   <span>Payment</span>
                   <span>
-                    {paymentMethod === 'card' ? `Card •••• ${card.number.replace(/\s/g, '').slice(-4)}` :
-                     paymentMethod === 'upi' ? 'UPI' : 'Cash on Delivery'}
+                    {paymentMethod === 'online' ? 'Paid Online (Razorpay)' : 'Cash on Delivery'}
                   </span>
                 </div>
                 <div className="confirmation-details-row">
@@ -317,86 +365,49 @@ export default function Checkout() {
                   </h2>
 
                   <div className="payment-methods">
-                    {[
-                      { id: 'card', label: 'Credit / Debit Card', desc: 'Visa, Mastercard, RuPay', icon: '💳' },
-                      { id: 'upi', label: 'UPI Payment', desc: 'Google Pay, PhonePe, Paytm', icon: '📱' },
-                      { id: 'cod', label: 'Cash on Delivery', desc: 'Pay when your order arrives', icon: '💵' },
-                    ].map(m => (
-                      <div
-                        key={m.id}
-                        className={`payment-method ${paymentMethod === m.id ? 'selected' : ''}`}
-                        onClick={() => setPaymentMethod(m.id)}
-                      >
-                        <div className="payment-radio">
-                          <div className="payment-radio-inner" />
-                        </div>
-                        <div className="payment-method-info">
-                          <h4>{m.label}</h4>
-                          <p>{m.desc}</p>
-                        </div>
-                        <span className="payment-method-icon">{m.icon}</span>
+                    <div
+                      className={`payment-method ${paymentMethod === 'online' ? 'selected' : ''}`}
+                      onClick={() => setPaymentMethod('online')}
+                    >
+                      <div className="payment-radio">
+                        <div className="payment-radio-inner" />
                       </div>
-                    ))}
+                      <div className="payment-method-info">
+                        <h4>Pay Online</h4>
+                        <p>Credit/Debit Card, UPI, Net Banking, Wallets</p>
+                      </div>
+                      <span className="payment-method-icon">💳</span>
+                    </div>
+
+                    <div
+                      className={`payment-method ${paymentMethod === 'cod' ? 'selected' : ''}`}
+                      onClick={() => setPaymentMethod('cod')}
+                    >
+                      <div className="payment-radio">
+                        <div className="payment-radio-inner" />
+                      </div>
+                      <div className="payment-method-info">
+                        <h4>Cash on Delivery</h4>
+                        <p>Pay when your order arrives (+₹49 COD charges)</p>
+                      </div>
+                      <span className="payment-method-icon">💵</span>
+                    </div>
                   </div>
 
-                  {paymentMethod === 'card' && (
-                    <>
-                      <div className="form-row full card-number-group">
-                        <div className={`form-group ${errors.cardNumber ? 'error' : ''}`}>
-                          <label>Card Number</label>
-                          <input
-                            value={card.number}
-                            onChange={e => updateCard('number', e.target.value)}
-                            placeholder="1234 5678 9012 3456"
-                            maxLength={19}
-                          />
-                          {errors.cardNumber && <span className="form-error">{errors.cardNumber}</span>}
-                        </div>
+                  {paymentMethod === 'online' && (
+                    <div className="online-payment-info">
+                      <div className="payment-logos">
+                        <span className="payment-badge">Visa</span>
+                        <span className="payment-badge">Mastercard</span>
+                        <span className="payment-badge">RuPay</span>
+                        <span className="payment-badge">UPI</span>
+                        <span className="payment-badge">GPay</span>
+                        <span className="payment-badge">PhonePe</span>
                       </div>
-                      <div className="form-row full">
-                        <div className={`form-group ${errors.cardName ? 'error' : ''}`}>
-                          <label>Cardholder Name</label>
-                          <input
-                            value={card.name}
-                            onChange={e => updateCard('name', e.target.value)}
-                            placeholder="ARYAN MEHTA"
-                          />
-                          {errors.cardName && <span className="form-error">{errors.cardName}</span>}
-                        </div>
-                      </div>
-                      <div className="card-row">
-                        <div className={`form-group ${errors.cardExpiry ? 'error' : ''}`}>
-                          <label>Expiry</label>
-                          <input
-                            value={card.expiry}
-                            onChange={e => updateCard('expiry', e.target.value)}
-                            placeholder="MM/YY"
-                            maxLength={5}
-                          />
-                          {errors.cardExpiry && <span className="form-error">{errors.cardExpiry}</span>}
-                        </div>
-                        <div className={`form-group ${errors.cardCvv ? 'error' : ''}`}>
-                          <label>CVV</label>
-                          <input
-                            type="password"
-                            value={card.cvv}
-                            onChange={e => updateCard('cvv', e.target.value)}
-                            placeholder="•••"
-                            maxLength={4}
-                          />
-                          {errors.cardCvv && <span className="form-error">{errors.cardCvv}</span>}
-                        </div>
-                        <div className="form-group" />
-                      </div>
-                    </>
-                  )}
-
-                  {paymentMethod === 'upi' && (
-                    <div className="form-row full">
-                      <div className="form-group">
-                        <label>UPI ID</label>
-                        <input placeholder="yourname@upi" />
-                      </div>
+                      <p className="payment-info-text">
+                        You will be redirected to our secure payment gateway (Razorpay/Cashfree) to complete your payment.
+                        Your card details are never stored on our servers.
+                      </p>
                     </div>
                   )}
 
@@ -407,7 +418,7 @@ export default function Checkout() {
                         <line x1="12" y1="8" x2="12" y2="12"/>
                         <line x1="12" y1="16" x2="12.01" y2="16"/>
                       </svg>
-                      An additional charge of ₹49 may apply for Cash on Delivery orders.
+                      An additional charge of ₹49 applies for Cash on Delivery orders.
                     </div>
                   )}
 
@@ -416,7 +427,14 @@ export default function Checkout() {
                       <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
                       <path d="M7 11V7a5 5 0 0110 0v4"/>
                     </svg>
-                    Your payment information is encrypted and secure. We never store your card details.
+                    Payments are processed securely by Razorpay & Cashfree. Your payment information is encrypted with 256-bit SSL. We never store your card details.
+                  </div>
+
+                  <div className="razorpay-trust">
+                    <svg width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                    </svg>
+                    <span>Secured by <strong>Razorpay & Cashfree</strong> — PCI DSS Compliant</span>
                   </div>
 
                   <div className="checkout-nav">
@@ -474,13 +492,14 @@ export default function Checkout() {
                     </div>
                     <div className="review-card">
                       <p>
-                        {paymentMethod === 'card' && (
-                          <><strong>Credit/Debit Card</strong><br />
-                          •••• •••• •••• {card.number.replace(/\s/g, '').slice(-4)}<br />
-                          {card.name}</>
+                        {paymentMethod === 'online' && (
+                          <><strong>Pay Online</strong><br />
+                          Cards, UPI, Net Banking, Wallets via Razorpay / Cashfree</>
                         )}
-                        {paymentMethod === 'upi' && <strong>UPI Payment</strong>}
-                        {paymentMethod === 'cod' && <strong>Cash on Delivery</strong>}
+                        {paymentMethod === 'cod' && (
+                          <><strong>Cash on Delivery</strong><br />
+                          +₹49 COD charges applied</>
+                        )}
                       </p>
                     </div>
                   </div>
@@ -511,6 +530,17 @@ export default function Checkout() {
                     </div>
                   </div>
 
+                  {paymentError && (
+                    <div className="payment-error-banner">
+                      <svg width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                        <circle cx="12" cy="12" r="10"/>
+                        <line x1="15" y1="9" x2="9" y2="15"/>
+                        <line x1="9" y1="9" x2="15" y2="15"/>
+                      </svg>
+                      {paymentError}
+                    </div>
+                  )}
+
                   <div className="checkout-nav">
                     <button className="btn-checkout-back" onClick={handleBack}>
                       ← Payment
@@ -518,6 +548,8 @@ export default function Checkout() {
                     <button className="btn-checkout-next" onClick={handleNext} disabled={processing}>
                       {processing ? (
                         <>Processing...</>
+                      ) : paymentMethod === 'online' ? (
+                        <>Pay ₹{total.toLocaleString()} →</>
                       ) : (
                         <>Place Order — ₹{total.toLocaleString()} →</>
                       )}
@@ -561,15 +593,44 @@ export default function Checkout() {
                   <span>Tax (GST 5%)</span>
                   <span>₹{tax.toLocaleString()}</span>
                 </div>
-                {cartTotal >= 2000 && (
+                {cartTotal >= 999 && (
                   <div className="summary-row discount">
                     <span>Free Shipping</span>
-                    <span>-₹149</span>
+                    <span>-₹50</span>
+                  </div>
+                )}
+                {paymentMethod === 'cod' && (
+                  <div className="summary-row">
+                    <span>COD Charges</span>
+                    <span>₹49</span>
                   </div>
                 )}
                 <div className="summary-row total">
                   <span>Total</span>
                   <span>₹{total.toLocaleString()}</span>
+                </div>
+                <p className="summary-tax-note">Inclusive of all taxes</p>
+              </div>
+
+              <div className="summary-trust-badges">
+                <div className="trust-item">
+                  <svg width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                  </svg>
+                  <span>Secured by Razorpay & Cashfree</span>
+                </div>
+                <div className="trust-item">
+                  <svg width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                    <path d="M7 11V7a5 5 0 0110 0v4"/>
+                  </svg>
+                  <span>256-bit SSL Encryption</span>
+                </div>
+                <div className="trust-item">
+                  <svg width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                    <polyline points="20 6 9 17 4 12"/>
+                  </svg>
+                  <span>PCI DSS Compliant</span>
                 </div>
               </div>
             </aside>

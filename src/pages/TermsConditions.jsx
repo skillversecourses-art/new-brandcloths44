@@ -43,11 +43,12 @@ const sections = [
     ],
     list: [
       'Orders are confirmed only after successful payment processing',
-      'We accept major credit cards, debit cards, UPI, and net banking',
-      'All payment transactions are processed through secure, encrypted payment gateways',
-      'In case of payment failure, your order will not be processed',
+      'We accept major credit cards, debit cards, UPI, net banking, and digital wallets through our payment partners Razorpay and Cashfree',
+      'All payment transactions are processed through secure, PCI-DSS compliant, encrypted payment gateways. We never store your card details on our servers.',
+      'In case of payment failure, your order will not be processed and any amount debited will be refunded within 5-7 business days',
       'You will receive an order confirmation email upon successful placement',
     ],
+    highlight: 'For any payment-related disputes, please contact us within 48 hours at hasin6637@gmail.com. We will respond to all payment disputes within 48 hours and resolve them within 7 business days.',
   },
   {
     title: 'Shipping & Delivery',

@@ -62,9 +62,10 @@ export default function Contact() {
               <div className="social-links">
                 <h4>Follow Us</h4>
                 <div className="social-row">
-                  {['Instagram', 'Twitter', 'Facebook', 'Pinterest'].map(s => (
-                    <a key={s} href="#" className="social-link">{s}</a>
-                  ))}
+                  <a href="https://instagram.com/brandcloths44" target="_blank" rel="noopener noreferrer" className="social-link">Instagram</a>
+                  <a href="https://twitter.com/brandcloths44" target="_blank" rel="noopener noreferrer" className="social-link">Twitter</a>
+                  <a href="https://facebook.com/brandcloths44" target="_blank" rel="noopener noreferrer" className="social-link">Facebook</a>
+                  <a href="https://wa.me/919350586487" target="_blank" rel="noopener noreferrer" className="social-link">WhatsApp</a>
                 </div>
               </div>
             </div>

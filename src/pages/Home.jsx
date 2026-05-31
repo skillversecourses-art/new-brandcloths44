@@ -133,6 +133,7 @@ export default function Home() {
                   <h4>{p.name}</h4>
                   <div className="stagger-bottom">
                     <span className="stagger-price">₹{p.price.toLocaleString()}</span>
+                    <span className="stagger-tax-note">Incl. of all taxes</span>
                     <button className="stagger-cart-btn" onClick={() => addToCart(p)}>+</button>
                   </div>
                 </div>

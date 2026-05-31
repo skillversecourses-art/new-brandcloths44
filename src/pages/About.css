@@ -303,7 +303,7 @@
   line-height: 1.7;
 }
 
-/* ── Team ── */
+/* ── Team / Business Details ── */
 .about-team {
   background: var(--bg-secondary);
   padding: 80px 0;
@@ -359,6 +359,53 @@
   font-size: 0.78rem;
   color: var(--accent);
   letter-spacing: 1px;
+}
+
+/* ── Business Details Grid ── */
+.business-details-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.business-detail-card {
+  background: var(--bg-glass);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 28px 24px;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  transition: all 0.35s;
+}
+
+.business-detail-card:hover {
+  border-color: rgba(255, 107, 74, 0.15);
+  transform: translateY(-2px);
+}
+
+.business-detail-icon {
+  font-size: 1.5rem;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.business-detail-label {
+  display: block;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+}
+
+.business-detail-value {
+  font-size: 0.9rem;
+  color: var(--text-primary);
+  font-weight: 600;
+  line-height: 1.5;
+  margin: 0;
 }
 
 /* ── CTA ── */
@@ -425,6 +472,7 @@
 @media (max-width: 900px) {
   .mission-grid { grid-template-columns: 1fr; gap: 48px; }
   .team-grid { grid-template-columns: repeat(2, 1fr); }
+  .business-details-grid { grid-template-columns: repeat(2, 1fr); }
   .timeline::before { left: 16px; }
   .timeline-item { width: 100%; padding-left: 48px; padding-right: 0; text-align: left; margin-left: 0; }
   .timeline-item.left .timeline-dot { right: auto; left: -7px; }
@@ -434,5 +482,6 @@
   .about-hero { padding: 80px 20px; }
   .container { padding: 0 20px; }
   .team-grid { grid-template-columns: 1fr; }
+  .business-details-grid { grid-template-columns: 1fr; }
   .cta-box { padding: 40px 24px; }
 }
