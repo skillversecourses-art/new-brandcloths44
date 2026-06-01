@@ -69,7 +69,7 @@ export default function Shop() {
       <section className="shop-hero">
         <div className="shop-hero-bg" />
         <div className="shop-hero-content">
-          <p className="section-label">Collection 2024</p>
+          <p className="section-label">Collection 2026</p>
           <h1>The <span className="gold-text">Full</span> Collection</h1>
           <p>Every piece is a statement. Browse the complete range.</p>
         </div>

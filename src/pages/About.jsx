@@ -2,10 +2,10 @@ import { Link } from 'react-router-dom'
 import './About.css'
 
 const milestones = [
-  { year: '2020', event: 'BrandCloths44 launched from a small studio in Mumbai.' },
-  { year: '2021', event: 'Crossed 5,000 orders. Launched the first premium winter collection.' },
-  { year: '2022', event: 'Opened flagship store. Expanded to 12 cities across India.' },
-  { year: '2023', event: 'Launched international shipping to 8 countries.' },
+  { year: '2020', event: 'BrandCloths44 launched from a small studio in Bengaluru.' },
+  { year: '2021', event: 'Launched the first premium winter collection.' },
+  { year: '2022', event: 'Expanded product range across men\'s, women\'s, and accessories.' },
+  { year: '2023', event: 'Launched international shipping to select countries.' },
   { year: '2024', event: 'Released the "Dark Signature" exclusive line.' },
 ]
 
@@ -36,7 +36,7 @@ export default function About() {
               <p className="section-label">Who We Are</p>
               <h2>Dark Fashion for the <span className="gold-text">Unapologetic.</span></h2>
               <p>
-                Founded in 2020 in Mumbai, BrandCloths44 was created with a single vision:
+                Founded in 2020 in Bengaluru, BrandCloths44 was created with a single vision:
                 to give dark fashion a premium home in India. We believe that clothing is
                 armor — every piece you wear should amplify who you are.
               </p>
@@ -58,7 +58,7 @@ export default function About() {
                 </div>
               </div>
               <div className="visual-stats-col">
-                {[['4+', 'Years'], ['150+', 'Styles'], ['20K+', 'Orders'], ['98%', 'Satisfaction']].map(([n, l]) => (
+                {[['4+', 'Years'], ['150+', 'Styles'], ['7-Day', 'Returns'], ['100%', 'Secure Pay']].map(([n, l]) => (
                   <div key={l} className="v-stat">
                     <span>{n}</span>
                     <p>{l}</p>

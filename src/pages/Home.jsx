@@ -16,10 +16,10 @@ const featured = [
 ]
 
 const categories = [
-  { name: "Men's Wear",   count: 48, img: UNS+'1521572163474-6864f9cf17ab'+QC },
-  { name: "Women's Wear", count: 56, img: UNS+'1595777457583-95e059d581b8'+QC },
-  { name: 'Accessories',  count: 32, img: UNS+'1553062407-98eeb64c6a62'+QC },
-  { name: 'Outerwear',    count: 24, img: UNS+'1539109136881-3be0616acf4b'+QC },
+  { name: "Men's Wear",   img: UNS+'1521572163474-6864f9cf17ab'+QC },
+  { name: "Women's Wear", img: UNS+'1595777457583-95e059d581b8'+QC },
+  { name: 'Accessories',  img: UNS+'1553062407-98eeb64c6a62'+QC },
+  { name: 'Outerwear',    img: UNS+'1539109136881-3be0616acf4b'+QC },
 ]
 
 const testimonials = [
@@ -43,7 +43,7 @@ export default function Home() {
         <div className="hero-inner">
           <div className="hero-eyebrow">
             <span className="eyebrow-dot" />
-            New Collection — 2024
+            New Collection — 2026
           </div>
           <h1 className="hero-title">
             Fashion That<br />
@@ -59,16 +59,16 @@ export default function Home() {
           </div>
           <div className="hero-stats">
             <div className="stat-pill">
-              <span>2K+</span>
-              <p>Happy Clients</p>
-            </div>
-            <div className="stat-pill">
               <span>150+</span>
               <p>Styles</p>
             </div>
             <div className="stat-pill">
-              <span>4.9</span>
-              <p>Rating</p>
+              <span>7</span>
+              <p>Day Returns</p>
+            </div>
+            <div className="stat-pill">
+              <span>100%</span>
+              <p>Secure Pay</p>
             </div>
           </div>
         </div>
@@ -104,7 +104,6 @@ export default function Home() {
               >
                 <div className="bento-overlay" />
                 <div className="bento-content">
-                  <span className="bento-count">{cat.count} items</span>
                   <h3>{cat.name}</h3>
                   <span className="bento-arrow">→</span>
                 </div>
@@ -150,10 +149,10 @@ export default function Home() {
       <section className="promo-banner">
         <div className="promo-mesh" />
         <div className="banner-content">
-          <span className="section-tag">Limited Time</span>
-          <h2>Get 20% Off Your First Order</h2>
-          <p>Use code <strong>BC44FIRST</strong> at checkout. Minimum order ₹999.</p>
-          <Link to="/shop" className="btn-gradient">Claim Offer</Link>
+          <span className="section-tag">Free Shipping</span>
+          <h2>Free Shipping on Orders Above ₹999</h2>
+          <p>Shop our full collection — no minimum fuss, just great fashion delivered to your door.</p>
+          <Link to="/shop" className="btn-gradient">Shop Now</Link>
         </div>
       </section>
 

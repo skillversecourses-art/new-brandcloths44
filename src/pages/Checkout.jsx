@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { useCart } from '../context/CartContext'
 import './Checkout.css'
 
@@ -14,7 +14,7 @@ function generateOrderId() {
 
 export default function Checkout() {
   const { items, cartTotal, cartCount, clearCart } = useCart()
-  const navigate = useNavigate()
+
   const [step, setStep] = useState(0)
   const [orderId, setOrderId] = useState('')
   const [processing, setProcessing] = useState(false)

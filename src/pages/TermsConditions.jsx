@@ -97,7 +97,7 @@ const sections = [
   {
     title: 'Governing Law',
     content: [
-      'These Terms and Conditions are governed by and construed in accordance with the laws of India. Any disputes arising from these terms shall be subject to the exclusive jurisdiction of the courts in Mumbai, Maharashtra.',
+      'These Terms and Conditions are governed by and construed in accordance with the laws of India. Any disputes arising from these terms shall be subject to the exclusive jurisdiction of the courts in Bengaluru, Karnataka.',
     ],
   },
   {

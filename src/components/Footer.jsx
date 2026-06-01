@@ -12,12 +12,6 @@ export default function Footer() {
             <span>BrandCloths<span className="f-logo-44">44</span></span>
           </div>
           <p>Premium fashion for the bold and the refined. Wear your identity.</p>
-          <div className="footer-socials">
-            <a href="https://instagram.com/brandcloths44" target="_blank" rel="noopener noreferrer" className="social-chip" aria-label="Instagram">I</a>
-            <a href="https://twitter.com/brandcloths44" target="_blank" rel="noopener noreferrer" className="social-chip" aria-label="Twitter">T</a>
-            <a href="https://facebook.com/brandcloths44" target="_blank" rel="noopener noreferrer" className="social-chip" aria-label="Facebook">F</a>
-            <a href="https://pinterest.com/brandcloths44" target="_blank" rel="noopener noreferrer" className="social-chip" aria-label="Pinterest">P</a>
-          </div>
         </div>
 
         <div className="footer-col">

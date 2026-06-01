@@ -11,15 +11,32 @@ const faqs = [
 export default function Contact() {
   const [form, setForm] = useState({ name: '', email: '', subject: '', message: '' })
   const [submitted, setSubmitted] = useState(false)
+  const [submitting, setSubmitting] = useState(false)
+  const [error, setError] = useState('')
   const [openFaq, setOpenFaq] = useState(null)
 
   const handleChange = e => setForm(f => ({ ...f, [e.target.name]: e.target.value }))
 
-  const handleSubmit = e => {
+  const handleSubmit = async e => {
     e.preventDefault()
-    setSubmitted(true)
-    setTimeout(() => setSubmitted(false), 4000)
-    setForm({ name: '', email: '', subject: '', message: '' })
+    setSubmitting(true)
+    setError('')
+    try {
+      const res = await fetch('https://formspree.io/f/xpfhdabc', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(form),
+      })
+      if (res.ok) {
+        setSubmitted(true)
+        setForm({ name: '', email: '', subject: '', message: '' })
+      } else {
+        setError('Failed to send. Please email us at hasin6637@gmail.com')
+      }
+    } catch {
+      setError('Failed to send. Please email us at hasin6637@gmail.com')
+    }
+    setSubmitting(false)
   }
 
   return (
@@ -59,15 +76,6 @@ export default function Contact() {
                 ))}
               </div>
 
-              <div className="social-links">
-                <h4>Follow Us</h4>
-                <div className="social-row">
-                  <a href="https://instagram.com/brandcloths44" target="_blank" rel="noopener noreferrer" className="social-link">Instagram</a>
-                  <a href="https://twitter.com/brandcloths44" target="_blank" rel="noopener noreferrer" className="social-link">Twitter</a>
-                  <a href="https://facebook.com/brandcloths44" target="_blank" rel="noopener noreferrer" className="social-link">Facebook</a>
-                  <a href="https://wa.me/919217807543" target="_blank" rel="noopener noreferrer" className="social-link">WhatsApp</a>
-                </div>
-              </div>
             </div>
 
             {/* FORM */}
@@ -126,7 +134,10 @@ export default function Contact() {
                       required
                     />
                   </div>
-                  <button type="submit" className="submit-btn">Send Message</button>
+                  {error && <p className="form-error-msg">{error}</p>}
+                  <button type="submit" className="submit-btn" disabled={submitting}>
+                    {submitting ? 'Sending...' : 'Send Message'}
+                  </button>
                 </form>
               )}
             </div>
